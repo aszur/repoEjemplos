@@ -17,22 +17,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usuario" />
+            android:text="@string/usuario" />
         <EditText
             android:id="@+id/nombreUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Introduce DNI"/>
+            android:hint="@string/dni_usuario"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contraseña" />
+            android:text="@string/contrasena" />
         <EditText
             android:id="@+id/claveUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Introduce Password"
+            android:hint="@string/pwd"
             android:inputType="textPassword"/>
     </GridLayout>
 
@@ -40,7 +40,7 @@
         android:id="@+id/botonAcceso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Acceder"
+        android:text="@string/acceder"
         />
 
 </LinearLayout>
