@@ -1,13 +1,15 @@
-package com.example.docencia.ejemplo1;
+package es.tta.example;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class activity_test extends AppCompatActivity {
+import com.example.docencia.ejemplo1.R;
+
+public class ExerciseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_exercise);
     }
 }

@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.docencia.ejemplo1.activity_test">
+    tools:context="com.example.docencia.ejemplo1.es.tta.example.activity_test">
 
     <TextView
         android:id="@+id/preguntaTest"
@@ -32,11 +32,11 @@
         android:onClick="send"/>
 
     <Button
-        android:id="@+id/botonSeguir"
+        android:id="@+id/botonAyuda"
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/botonContinuar" />
+        android:text="@string/botonAyuda" />
 
 
 </LinearLayout>
