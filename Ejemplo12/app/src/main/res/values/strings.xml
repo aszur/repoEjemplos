@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Ejemplo1</string>
+    <string name="alumnoTitle">Alumno de TTA</string>
+    <string name="evalTitle">Evaluación de TTA</string>
+    <string name="testTitle">Nuevo Test</string>
+    <string name="ejerTitle">Nuevo Ejercicio</string>
     <string name="usuario">Usuario</string>
     <string name="dni_usuario">Introduce DNI</string>
     <string name="contrasena">Contraseña</string>
