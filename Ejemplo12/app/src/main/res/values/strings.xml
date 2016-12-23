@@ -14,5 +14,8 @@
     <string name="respuesta0_3">Opciones del menú de ajustes</string>
     <string name="respuesta0_4">Nivel mínimo de la API Android requerida</string>
     <string name="respuesta0_5">Nombre del paquete java de la aplicación</string>
+    <string name="botonEnviar">Enviar</string>
+    <string name="botonContinuar">Seguir</string>
+    <string name="title_activity_menu">MenuActivity</string>
 
 </resources>
