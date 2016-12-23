@@ -16,6 +16,12 @@
     <string name="respuesta0_5">Nombre del paquete java de la aplicación</string>
     <string name="botonEnviar">Enviar</string>
     <string name="botonContinuar">Seguir</string>
+    <string name="explicacion">Explica cómo aplicarías el patrón de diseño MVC en el desarrollo de una app para Android</string>
+    <string name="botonSubeFichero">SUBIR FICHERO</string>
+    <string name="botonSacaFoto">SACAR FOTO</string>
+    <string name="botonGrabaAudio">GRABAR AUDIO</string>
+    <string name="botonGrabaVideo">GRABAR VÍDEO</string>
+
     <string name="title_activity_menu">MenuActivity</string>
 
 </resources>

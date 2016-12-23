@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_exercise"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.docencia.ejemplo1.activity_exercise">
+
+    <TextView
+        android:id="@+id/explicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/explicacion"/>
+
+    <Button
+        android:id="@+id/botonSubirFichero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botonSubeFichero"
+        />
+    <Button
+        android:id="@+id/botonSacarFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botonSacaFoto"
+        />
+    <Button
+        android:id="@+id/botonGrabaAudio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botonGrabaAudio"
+        />
+    <Button
+        android:id="@+id/botonGrabaVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botonGrabaVideo"
+        />
+
+</LinearLayout>

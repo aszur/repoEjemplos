@@ -19,7 +19,8 @@
             android:name="com.example.docencia.com.tta.ehu.ejemplo1.MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity_test"></activity>
+        <activity android:name=".activity_test" />
+        <activity android:name=".activity_exercise"></activity>
     </application>
 
 </manifest>
