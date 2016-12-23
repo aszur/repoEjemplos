@@ -27,6 +27,8 @@
     <string name="botonSacaFoto">SACAR FOTO</string>
     <string name="botonGrabaAudio">GRABAR AUDIO</string>
     <string name="botonGrabaVideo">GRABAR VÍDEO</string>
+    <string name="acierto">¡Has acertado!</string>
+    <string name="fallo">¡Has fallado!</string>
 
     <string name="ayuda">The manifest describes the components of the application: the activities,
         services, broadcast receivers, and content providers that</string>

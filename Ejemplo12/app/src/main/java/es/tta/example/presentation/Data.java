@@ -7,7 +7,7 @@ import es.tta.example.model.Exercise;
 /**
  * Created by asier on 23/12/16.
  */
-//¿Esta es la interfaz de acceso a business?
+//¿Esta es la interfaz de acceso a business? Clase auxiliar para guardar datos de presentación.
 
 public class Data {
     private final static String EXTRA_USER = "es.tta.example.user";
