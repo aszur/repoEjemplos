@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Ejemplo1.2</string>
+    <string name="alumnoTitle">Alumno de TTA</string>
+    <string name="evalTitle">Evaluación de TTA</string>
+    <string name="testTitle">Nuevo Test</string>
+    <string name="ejerTitle">Nuevo Ejercicio</string>
+    <string name="usuario">Usuario</string>
+    <string name="dni_usuario">Introduce DNI</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="pwd">Introduce password</string>
+    <string name="acceder">Acceder</string>
+    <string name="bienvenida">Bienvenido</string>
+    <string name="bienvenida2">Lección 1: Introducciónn a Android</string>
+    <string name="opcion_nuevo_test">NUEVO TEST</string>
+    <string name="opcion_nuevo_ejercicio">NUEVO EJERCICIO</string>
+    <string name="opcion_seguimiento">SEGUIMIENTO</string>
+    <string name="pregunta">¿Cuál de las siguientes opciones NO se indica en el fichero de manifiesto de la app?</string>
+    <string name="respuesta0_1">Versión de la aplicación</string>
+    <string name="respuesta0_2">Listado de componentes de la aplicación</string>
+    <string name="respuesta0_3">Opciones del menú de ajustes</string>
+    <string name="respuesta0_4">Nivel mínimo de la API Android requerida</string>
+    <string name="respuesta0_5">Nombre del paquete java de la aplicación</string>
+    <string name="botonEnviar">Enviar</string>
+    <string name="botonAyuda">VER AYUDA</string>
+    <string name="explicacion">Explica cómo aplicarías el patrón de diseño MVC en el desarrollo de una app para Android</string>
+    <string name="botonSubeFichero">SUBIR FICHERO</string>
+    <string name="botonSacaFoto">SACAR FOTO</string>
+    <string name="botonGrabaAudio">GRABAR AUDIO</string>
+    <string name="botonGrabaVideo">GRABAR VÍDEO</string>
+    <string name="acierto">¡Has acertado!</string>
+    <string name="fallo">¡Has fallado!</string>
+
+    <string name="ayuda">The manifest describes the components of the application: the activities,
+        services, broadcast receivers, and content providers that</string>
+    <string name="ayuda2">http://www.google.com</string>
+
+    <string name="title_activity_menu">MenuActivity</string>
+
+</resources>
