@@ -24,6 +24,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.io.IOException;
+
+import es.tta.example.model.AudioPlayer;
 import es.tta.example.model.Test;
 import es.tta.example.presentation.Data;
 
@@ -159,6 +162,14 @@ public class TestActivity extends AppCompatActivity{
             layout.addView(videoView);
             videoView.start();
         }else if(selectecIndex == 4){
+            LinearLayout layout = (LinearLayout) findViewById(R.id.activity_test);
+            AudioPlayer audioPlay = new AudioPlayer(findViewById(R.id.activity_test));
+            try {
+                audioPlay.setAudioUri(Uri.parse("http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
         }
 
