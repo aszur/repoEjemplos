@@ -1,5 +1,7 @@
 package es.tta.example.model;
 
+import android.view.View;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -28,4 +30,5 @@ public class Business {
     public void uploadChoice(int userId, int choiceId) throws JSONException, IOException{
 
     }*/
+
 }

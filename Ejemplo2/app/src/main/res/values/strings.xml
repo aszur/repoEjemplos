@@ -33,7 +33,9 @@
     <string name="ayuda">The manifest describes the components of the application: the activities,
         services, broadcast receivers, and content providers that</string>
     <string name="ayuda2">http://www.google.com</string>
-
+    <string name="noCamera">Su dispositivo no dispone de cámara.</string>
+    <string name="noMicro">Su dispositivo no dispone de microfono.</string>
+    <string name="noApp">Su dispositivo no dispone aplicaciones con capacidad de hacer fotos.</string>
     <string name="title_activity_menu">MenuActivity</string>
 
 </resources>

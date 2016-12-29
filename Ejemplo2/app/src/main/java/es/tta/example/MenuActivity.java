@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,8 +29,11 @@ public class MenuActivity extends AppCompatActivity {
         /*Esto de pasar datos se podría hacer mediante una interfaz? ¿Como?*/
         Bundle bundle = intent.getExtras();
         String usuario = bundle.getString(EXTRA_LOGIN);
+        //Log.d("Usuario/Usr",usuario+"/"+usr);
         TextView textLogin = (TextView) findViewById(R.id.bienvenidaUsuario);
-        textLogin.setText(R.string.bienvenida + usuario + R.string.bienvenida2);
+        String bienvenida = getString(R.string.bienvenida) +" "+ usuario +" "+ getString(R.string.bienvenida2);
+        Log.d("Mensaje bienvenida",bienvenida);
+        textLogin.setText(bienvenida);
 
     }
     //Funcion llamada desde layout
@@ -42,6 +46,7 @@ public class MenuActivity extends AppCompatActivity {
     View.OnClickListener toOption = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Log.d("Estado", "En onClick por Java");
             if(v.getId() == R.id.botonEjercicio){
                 Intent intent = new Intent(MenuActivity.this, ExerciseActivity.class);
                 startActivity(intent);

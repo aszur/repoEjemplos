@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.docencia.ejemplo1.es.tta.example.activity_exercise">
+    tools:context="es.tta.example.ExerciseActivity">
 
     <TextView
         android:id="@+id/explicacion"
@@ -29,18 +29,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/botonSacaFoto"
+        android:onClick="takePicture"
         />
     <Button
         android:id="@+id/botonGrabaAudio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/botonGrabaAudio"
+        android:onClick="recordAudio"
         />
     <Button
         android:id="@+id/botonGrabaVideo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/botonGrabaVideo"
+        android:onClick="recordVideo"
         />
 
 </LinearLayout>
