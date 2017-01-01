@@ -113,7 +113,7 @@ public class ExerciseActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode != Activity.RESULT_OK);
             return;
-        switch (requestCode){
+        /*switch (requestCode){
             case READ_REQUEST_CODE:
             case VIDEO_REQUEST_CODE:
             case AUDIO_REQUEST_CODE:
@@ -122,6 +122,6 @@ public class ExerciseActivity extends AppCompatActivity {
             case PICTURE_REQUEST_CODE:
                 //sendFile(pictureUri);
                 //break;
-        }
+        }*/
     }
 }
