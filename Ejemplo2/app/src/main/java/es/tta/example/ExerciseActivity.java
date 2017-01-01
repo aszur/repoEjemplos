@@ -117,10 +117,10 @@ public class ExerciseActivity extends AppCompatActivity {
             case READ_REQUEST_CODE:
             case VIDEO_REQUEST_CODE:
             case AUDIO_REQUEST_CODE:
-                //sendFile(data.getData());
+                sendFile(data.getData());
                 //break;
             case PICTURE_REQUEST_CODE:
-                //sendFile(pictureUri);
+                sendFile(pictureUri);
                 //break;
         }*/
     }

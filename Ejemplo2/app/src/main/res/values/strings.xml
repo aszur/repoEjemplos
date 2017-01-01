@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ejemplo1.2</string>
+    <string name="app_name">Ejemplo2</string>
     <string name="alumnoTitle">Alumno de TTA</string>
     <string name="evalTitle">Evaluación de TTA</string>
     <string name="testTitle">Nuevo Test</string>
