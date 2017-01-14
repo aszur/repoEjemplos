@@ -26,6 +26,7 @@ public class AT_GetUserData extends AsyncTask<String, Integer, User> {
         String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getStatus?dni="+usr;
 
         try {
+            RestClient.setHttpBasicAuth("12345678A","tta");
             JSONObject jo = new JSONObject(RestClient.getString(surl));
             user1.setId(jo.getInt("id"));
             user1.setLessonNumber(jo.getInt("lessonNumber"));

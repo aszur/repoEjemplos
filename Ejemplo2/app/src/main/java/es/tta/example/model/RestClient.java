@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class RestClient {
     private final static String AUTH = "Authoritation";
-    private final static String baseUrl="";
+    private final static String baseUrl="baseUrl";
     private final static int MEGABYTE = 1024 * 1024;
     private final static Map<String, String> properties = new HashMap<>();
 
@@ -57,6 +57,7 @@ public class RestClient {
         System.out.println("En getString...");
         try {
             conn = getConnection(path);
+            System.out.print("Conexion status: "+conn.getResponseCode());
             System.out.println("En getString... Conexión creada");
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             br.close();

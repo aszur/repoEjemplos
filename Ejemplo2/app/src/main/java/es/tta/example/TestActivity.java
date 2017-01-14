@@ -53,7 +53,7 @@ public class TestActivity extends AppCompatActivity{
             test = gT.execute("1").get();
             TextView pregunta = (TextView)findViewById(R.id.preguntaTest);
             pregunta.setText(test.getEnunciado());
-            /*String[] answer = {test.getRespuesta1().getAnswer(),
+            String[] answer = {test.getRespuesta1().getAnswer(),
                     test.getRespuesta2().getAnswer(),
                     test.getRespuesta3().getAnswer(),
                     test.getRespuesta4().getAnswer(),
@@ -70,7 +70,7 @@ public class TestActivity extends AppCompatActivity{
                     }
                 });
                 opciones.addView(radio);
-            }*/
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

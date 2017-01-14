@@ -6,7 +6,7 @@ package es.tta.example.model;
 
 public class Resource {
     private int id;
-    private String type;
+    private String description;
     private String mime;
 
     public int getId() {
@@ -17,12 +17,12 @@ public class Resource {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getDescription() {
+        return description;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getMime() {
