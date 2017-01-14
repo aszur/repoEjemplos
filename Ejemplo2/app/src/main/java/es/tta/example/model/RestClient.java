@@ -1,5 +1,7 @@
 package es.tta.example.model;
 
+import android.util.Base64;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,28 +22,28 @@ import java.util.Map;
 
 public class RestClient {
     private final static String AUTH = "Authoritation";
-    private final String baseUrl;
-    private final int MEGABYTE = 1024 * 1024;
-    private final Map<String, String> properties = new HashMap<>();
+    private final static String baseUrl="";
+    private final static int MEGABYTE = 1024 * 1024;
+    private final static Map<String, String> properties = new HashMap<>();
 
-    public RestClient(String baseUrl){
-        this.baseUrl = baseUrl;
+    public RestClient(){
+        //this.baseUrl = baseUrl;
     }
 
-    public String  setHttpBasicAuth(String user, String passwd){
-        String auth="";
-        return auth;
+    public static void  setHttpBasicAuth(String user, String passwd){
+        String basicAuth = Base64.encodeToString(String.format("%s:%s",user,passwd).getBytes(),Base64.DEFAULT);
+        properties.put(AUTH, String.format("Basic %s", basicAuth));
     }
 
-    public void setAuthorization(String auth){
+    public static void setAuthorization(String auth){
         properties.put(AUTH, auth);
     }
-    public void setProperty(String name, String value){
+    public static void setProperty(String name, String value){
         properties.put(name,value);
     }
 
-    private HttpURLConnection getConnection(String path) throws IOException{
-        URL url = new URL(String.format("%s/%s",baseUrl,path));
+    private static HttpURLConnection getConnection(String path) throws IOException{
+        URL url = new URL(path);
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
         for(Map.Entry<String, String> property : properties.entrySet() )
             conn.setRequestProperty(property.getKey(),property.getValue());
@@ -50,7 +52,7 @@ public class RestClient {
         //conn.setRequestProperty("Connection","Keep-Alive");
         return conn;
     }
-    public String getString(String path) throws IOException{
+    public static String getString(String path) throws IOException{
         HttpURLConnection conn = null;
         try {
             conn = getConnection(path);
@@ -65,17 +67,17 @@ public class RestClient {
         }
 
     }
-    public JSONObject getJson(String path) throws IOException,JSONException{
+    public static JSONObject getJson(String path) throws IOException,JSONException{
         return new JSONObject(getString(path));
 
     }
-    public int postFile(String path, InputStream is, String fileName) throws IOException{
+    public static int postFile(String path, InputStream is, String fileName) throws IOException{
         String boundary = Long.toString(System.currentTimeMillis());
         String newLine = "\r\n";
         String prefix = "--";
         HttpURLConnection conn = null;
         try{
-            conn = getConnection(String path);
+            conn = getConnection(path);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-type","multipart/form-data-boundary="+boundary);
             DataOutputStream out = new DataOutputStream(conn.getOutputStream());
@@ -95,7 +97,7 @@ public class RestClient {
                 conn.disconnect();
         }
     }
-    public int postJson(final JSONObject json, String path) throws IOException{
+    public static int postJson(final JSONObject json, String path) throws IOException{
         HttpURLConnection conn = null;
         try{
             conn = getConnection(path);

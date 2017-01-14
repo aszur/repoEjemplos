@@ -17,43 +17,22 @@ import java.net.URL;
  * Created by asier on 13/01/17.
  */
 
-public class AT_GetExercise extends AsyncTask<String, Integer, User> {
+public class AT_GetExercise extends AsyncTask<String, Integer, Exercise> {
     @Override
-    protected User doInBackground(String... tst) {
-        boolean estado = false;
-        User user1 = new User();
-        String respuesta;
-        HttpURLConnection urlConnection = null;
-        String test = tst[0];
-        String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getTest?id="+tst;
+    protected Exercise doInBackground(String... tst) {
+        String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getTest?id="+tst[0];
+        Exercise exercise = new Exercise();
         try {
-            URL url = new URL(surl);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            if (urlConnection.getResponseCode() == 200) {
-                InputStream in = urlConnection.getInputStream();
+            JSONObject jsonObject = RestClient.getJson(surl);
+            exercise.setId(jsonObject.getInt("id"));
+            exercise.setWording(jsonObject.getString("wording"));
 
-                InputStreamReader isr = new InputStreamReader(in, "UTF-8");
-                BufferedReader br = new BufferedReader(isr);
-                JSONObject jo = null;
-                try {
-                    jo = new JSONObject(br.readLine());
-                    user1.setId(jo.getInt("id"));
-                    user1.setLessonNumber(jo.getInt("lessonNumber"));
-                    user1.setLessonTitle(jo.getString("lessonTitle"));
-                    user1.setNextExercise(jo.getInt("nextExercise"));
-                    user1.setNextText(jo.getInt("nextText"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return user1;
+        return exercise;
     }
 }
 
