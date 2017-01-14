@@ -19,8 +19,8 @@ import java.net.URL;
 
 public class AT_GetExercise extends AsyncTask<String, Integer, Exercise> {
     @Override
-    protected Exercise doInBackground(String... tst) {
-        String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getTest?id="+tst[0];
+    protected Exercise doInBackground(String... ex) {
+        String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getExercise?id="+ex[0];
         Exercise exercise = new Exercise();
         try {
             JSONObject jsonObject = RestClient.getJson(surl);

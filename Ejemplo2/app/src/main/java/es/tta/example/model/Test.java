@@ -5,6 +5,17 @@ package es.tta.example.model;
  */
 
 public class Test {
+    private String enunciado;
+    private Choice respuesta1;
+    private Choice respuesta2;
+    private Choice respuesta3;
+    private Choice respuesta4;
+    private Choice respuesta5;
+    private String mime;
+    public Test() {
+
+    }
+
     public String getEnunciado() {
         return enunciado;
     }
@@ -13,43 +24,43 @@ public class Test {
         this.enunciado = enunciado;
     }
 
-    public String getRespuesta1() {
+    public Choice getRespuesta1() {
         return respuesta1;
     }
 
-    public void setRespuesta1(String respuesta1) {
+    public void setRespuesta1(Choice respuesta1) {
         this.respuesta1 = respuesta1;
     }
 
-    public String getRespuesta2() {
+    public Choice getRespuesta2() {
         return respuesta2;
     }
 
-    public void setRespuesta2(String respuesta2) {
+    public void setRespuesta2(Choice respuesta2) {
         this.respuesta2 = respuesta2;
     }
 
-    public String getRespuesta3() {
+    public Choice getRespuesta3() {
         return respuesta3;
     }
 
-    public void setRespuesta3(String respuesta3) {
+    public void setRespuesta3(Choice respuesta3) {
         this.respuesta3 = respuesta3;
     }
 
-    public String getRespuesta4() {
+    public Choice getRespuesta4() {
         return respuesta4;
     }
 
-    public void setRespuesta4(String respuesta4) {
+    public void setRespuesta4(Choice respuesta4) {
         this.respuesta4 = respuesta4;
     }
 
-    public String getRespuesta5() {
+    public Choice getRespuesta5() {
         return respuesta5;
     }
 
-    public void setRespuesta5(String respuesta5) {
+    public void setRespuesta5(Choice respuesta5) {
         this.respuesta5 = respuesta5;
     }
 
@@ -60,25 +71,4 @@ public class Test {
     public void setMime(String mime) {
         this.mime = mime;
     }
-
-    private String enunciado;
-    private String respuesta1;
-    private String respuesta2;
-    private String respuesta3;
-    private String respuesta4;
-    private String respuesta5;
-    private String mime;
-
-
-    public Test(String enunciado, String respuesta1, String respuesta2, String respuesta3, String respuesta4, String respuesta5, String mime) {
-        this.enunciado = enunciado;
-        this.respuesta1 = respuesta1;
-        this.respuesta2 = respuesta2;
-        this.respuesta3 = respuesta3;
-        this.respuesta4 = respuesta4;
-        this.respuesta5 = respuesta5;
-        this.mime = mime;
-    }
-
-
 }

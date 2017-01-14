@@ -37,7 +37,7 @@ public class AT_GetUserData extends AsyncTask<String, Integer, User> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-       
+
 
 
         return user1;
