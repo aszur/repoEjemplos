@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import com.example.docencia.ejemplo1.R;
 
+import es.tta.example.model.AT_GetUserData;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         String login = ((EditText) findViewById(R.id.nombreUsuario)).getText().toString();
         String pwd = ((EditText) findViewById(R.id.claveUsuario)).getText().toString();
         if (authenticate(login, pwd)) {
-            intent.putExtra(MenuActivity.EXTRA_LOGIN, login); //¿lo esta guardando directamente en la vble de la otra activity?
+            intent.putExtra(MenuActivity.EXTRA_LOGIN, login);
+            /*AT_GetUserData guD = new AT_GetUserData();
+            guD.execute().get();*/
             startActivity(intent);
         }
     }

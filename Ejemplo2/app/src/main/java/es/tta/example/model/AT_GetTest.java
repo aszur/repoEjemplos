@@ -24,9 +24,9 @@ public class AT_GetTest extends AsyncTask<String, Integer, Test> {
         Test test = new Test();
         List<Choice> opciones = new ArrayList<Choice>();
         try {
-            //RestClient.setHttpBasicAuth("12345678A","tta");
-            //JSONObject jsonObject = RestClient.getJson(surl);
-            JSONObject jsonObject = new JSONObject("{\"wording\":\"Â¿CuÃ¡l de las siguientes " +
+            RestClient.setHttpBasicAuth("12345678A","tta");
+            JSONObject jsonObject = RestClient.getJson(surl);
+            /*JSONObject jsonObject = new JSONObject("{\"wording\":\"Â¿CuÃ¡l de las siguientes " +
                     "opciones NO se indica en el fichero de manifiesto de la app?\",\"choices\"" +
                     ":[{\"id\":1,\"advise\":\"http://developer.android.com/guide/topics/manifest/" +
                     "manifest-intro.html\",\"answer\":\"VersiÃ³n de la aplicaciÃ³n\",\"correct\":fa" +
@@ -41,7 +41,7 @@ public class AT_GetTest extends AsyncTask<String, Integer, Test> {
                     "a\",\"correct\":false,\"resourceType\":{\"id\":4,\"description\":\"mp4\",\"mime\":\"video/mp4" +
                     "\"}},{\"id\":5,\"advise\":\"http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4" +
                     "\",\"answer\":\"Nombre del paquete java de la aplicaciÃ³n\",\"correct\":false,\"resourceTy" +
-                    "pe\":{\"id\":3,\"description\":\"mp3\",\"mime\":\"audio/mpeg\"}}]}");
+                    "pe\":{\"id\":3,\"description\":\"mp3\",\"mime\":\"audio/mpeg\"}}]}");*/
             test.setEnunciado(jsonObject.getString("wording"));
             System.out.println("Enunciado: "+ test.getEnunciado());
             JSONArray ja = jsonObject.getJSONArray("choices");
@@ -66,9 +66,9 @@ public class AT_GetTest extends AsyncTask<String, Integer, Test> {
             test.setRespuesta3(opciones.get(2));
             test.setRespuesta4(opciones.get(3));
             test.setRespuesta5(opciones.get(4));
-        } /*catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        } */catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return test;

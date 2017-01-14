@@ -31,23 +31,30 @@ public class RestClient {
     }
 
     public static void  setHttpBasicAuth(String user, String passwd){
-        String basicAuth = Base64.encodeToString(String.format("%s:%s",user,passwd).getBytes(),Base64.DEFAULT);
-        properties.put(AUTH, String.format("Basic %s", basicAuth));
+        String basicAuth = Base64.encodeToString(String.format("%s:%s",user,passwd).getBytes(), Base64.DEFAULT);
+        //String basicAuth = Base64.encodeToString(new String(user+":"+passwd).getBytes(),Base64.DEFAULT);
+        System.out.print(basicAuth);
+        properties.put(AUTH, String.format("Basic %s", basicAuth+"\r\n"));
     }
 
+    public String getAuthorization(){
+        return properties.get(AUTH);
+    }
     public static void setAuthorization(String auth){
+
         properties.put(AUTH, auth);
     }
     public static void setProperty(String name, String value){
+
         properties.put(name,value);
     }
 
     private static HttpURLConnection getConnection(String path) throws IOException{
         URL url = new URL(path);
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+        //conn.setRequestProperty("Connection", "Keep-Alive");
         for(Map.Entry<String, String> property : properties.entrySet() )
             conn.setRequestProperty(property.getKey(),property.getValue());
-
         conn.setUseCaches(false);
         //conn.setRequestProperty("Connection","Keep-Alive");
         return conn;
