@@ -22,37 +22,24 @@ public class AT_GetUserData extends AsyncTask<String, Integer, User> {
     protected User doInBackground(String... usuario) {
         boolean estado = false;
         User user1 = new User();
-        String respuesta;
-        HttpURLConnection urlConnection = null;
         String usr = usuario[0];
         String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getStatus?dni="+usr;
+
         try {
-            URL url = new URL(surl);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            if (urlConnection.getResponseCode() == 200) {
-                InputStream in = urlConnection.getInputStream();
-
-                InputStreamReader isr = new InputStreamReader(in, "UTF-8");
-                BufferedReader br = new BufferedReader(isr);
-                JSONObject jo = null;
-                try {
-                    jo = new JSONObject(br.readLine());
-                    user1.setId(jo.getInt("id"));
-                    user1.setLessonNumber(jo.getInt("lessonNumber"));
-                    user1.setLessonTitle(jo.getString("lessonTitle"));
-                    user1.setNextExercise(jo.getInt("nextExercise"));
-                    user1.setNextText(jo.getInt("nextText"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        } catch (MalformedURLException e) {
+            JSONObject jo = new JSONObject(RestClient.getString(surl));
+            user1.setId(jo.getInt("id"));
+            user1.setLessonNumber(jo.getInt("lessonNumber"));
+            user1.setLessonTitle(jo.getString("lessonTitle"));
+            user1.setNextExercise(jo.getInt("nextExercise"));
+            user1.setNextText(jo.getInt("nextText"));
+        } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+       
+
+
         return user1;
     }
 }
