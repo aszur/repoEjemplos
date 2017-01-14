@@ -54,8 +54,10 @@ public class RestClient {
     }
     public static String getString(String path) throws IOException{
         HttpURLConnection conn = null;
+        System.out.println("En getString...");
         try {
             conn = getConnection(path);
+            System.out.println("En getString... Conexión creada");
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             br.close();
             //conn.disconnect();

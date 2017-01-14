@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -25,7 +26,9 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
+import es.tta.example.model.AT_GetTest;
 import es.tta.example.model.AudioPlayer;
 import es.tta.example.model.Test;
 import es.tta.example.presentation.Data;
@@ -44,27 +47,35 @@ public class TestActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        Test test = new Test(getString(R.string.pregunta),getString(R.string.respuesta0_1),getString(R.string.respuesta0_2),
-                getString(R.string.respuesta0_3),getString(R.string.respuesta0_4),getString(R.string.respuesta0_1),"");
+        AT_GetTest gT = new AT_GetTest();
+        Test test = null;
+        try {
+            test = gT.execute("1").get();
+            TextView pregunta = (TextView)findViewById(R.id.preguntaTest);
+            pregunta.setText(test.getEnunciado());
+            /*String[] answer = {test.getRespuesta1().getAnswer(),
+                    test.getRespuesta2().getAnswer(),
+                    test.getRespuesta3().getAnswer(),
+                    test.getRespuesta4().getAnswer(),
+                    test.getRespuesta5().getAnswer()};
 
-        String[] answer = {test.getRespuesta1(),
-                test.getRespuesta2(),
-                test.getRespuesta3(),
-                test.getRespuesta4(),
-                test.getRespuesta5()};
-        opciones = (RadioGroup) findViewById(R.id.opcionesTest);
-        for (String opcion : answer) {
-            RadioButton radio = new RadioButton(this);
-            radio.setText(opcion);
-            radio.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    findViewById(R.id.botonEnviarRespuestaTest).setVisibility(View.VISIBLE);
-                }
-            });
-            opciones.addView(radio);
+            opciones = (RadioGroup) findViewById(R.id.opcionesTest);
+            for (String opcion : answer) {
+                RadioButton radio = new RadioButton(this);
+                radio.setText(opcion);
+                radio.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        findViewById(R.id.botonEnviarRespuestaTest).setVisibility(View.VISIBLE);
+                    }
+                });
+                opciones.addView(radio);
+            }*/
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
-
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

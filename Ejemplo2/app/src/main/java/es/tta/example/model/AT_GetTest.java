@@ -17,12 +17,14 @@ import java.util.List;
 public class AT_GetTest extends AsyncTask<String, Integer, Test> {
     @Override
     protected Test doInBackground(String... tst) {
+        System.out.println("Ejecutando GetTest");
         String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/getTest?id="+tst[0];
         Test test = new Test();
         List<Choice> opciones = new ArrayList<Choice>();
         try {
             JSONObject jsonObject = RestClient.getJson(surl);
             test.setEnunciado(jsonObject.getString("wording"));
+            System.out.println("Enunciado: "+ test.getEnunciado());
             JSONArray ja = jsonObject.getJSONArray("choices");
             int size = ja.length();
             for (int i = 0; i < size; i++) {
@@ -33,6 +35,7 @@ public class AT_GetTest extends AsyncTask<String, Integer, Test> {
                 opcion.setAnswer(jo.getString("answer"));
                 opcion.setCorrect(jo.getString("correct"));
                 opcion.setRes((Resource)jo.get("resourceType"));
+                System.out.println("Respuesta "+(i+1) +":"+ test.getEnunciado());
                 opciones.add(opcion);
             }
             test.setRespuesta1(opciones.get(0));
