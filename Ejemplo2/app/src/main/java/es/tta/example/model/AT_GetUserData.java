@@ -17,11 +17,11 @@ import java.net.URL;
  * Created by asier on 13/01/17.
  */
 
-public class GetUserData extends AsyncTask<String, Integer, User> {
+public class AT_GetUserData extends AsyncTask<String, Integer, User> {
     @Override
     protected User doInBackground(String... usuario) {
         boolean estado = false;
-        User user1 = new User();;
+        User user1 = new User();
         String respuesta;
         HttpURLConnection urlConnection = null;
         String usr = usuario[0];
