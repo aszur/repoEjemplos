@@ -29,7 +29,9 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 import es.tta.example.model.AT_GetTest;
+import es.tta.example.model.AT_PostChoice;
 import es.tta.example.model.AudioPlayer;
+import es.tta.example.model.Choice;
 import es.tta.example.model.Test;
 import es.tta.example.presentation.Data;
 
@@ -121,6 +123,9 @@ public class TestActivity extends AppCompatActivity{
             findViewById(R.id.botonAyuda).setVisibility(View.VISIBLE);
             Toast.makeText(this, R.string.fallo, Toast.LENGTH_SHORT).show();
         }
+        AT_PostChoice pC = new AT_PostChoice();
+        String [] strings = {usuario,Integer.toString(seleccionada)};
+        pC.execute(strings);
     }
 
     protected void ayudame(View v) {
