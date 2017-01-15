@@ -37,6 +37,9 @@ public class TestActivity extends AppCompatActivity{
     protected Data data;
     protected RadioGroup opciones;
     protected int seleccionada;
+    public String usuario;
+    public String pwd;
+    Test test = null;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -47,10 +50,15 @@ public class TestActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        Bundle extras = getIntent().getExtras();
+        usuario = extras.getString("usuario"); //Recogemos credenciales
+        pwd = extras.getString("pwd");
+        System.out.print(usuario+":"+pwd);
+        String [] strings = {"1",usuario,pwd};
         AT_GetTest gT = new AT_GetTest();
-        Test test = null;
+
         try {
-            test = gT.execute("1").get();
+            test = gT.execute(strings).get();
             TextView pregunta = (TextView)findViewById(R.id.preguntaTest);
             pregunta.setText(test.getEnunciado());
             String[] answer = {test.getRespuesta1().getAnswer(),
@@ -125,12 +133,16 @@ public class TestActivity extends AppCompatActivity{
                 web = new WebView(this);
                 web.setId(R.id.webViewId);
             }
-            web.loadData(getString(R.string.ayuda), "text/html", null);
+            System.out.println("Advise 1: "+ test.getRespuesta1().getAdvice()+" con mime: "+ test.getRespuesta1().getRes().getMime());
+            //web.loadUrl(test.getRespuesta1().getAdvice().toString()); Abre otra app, no sirve
+            web.loadData(test.getRespuesta1().getAdvice().toString(),test.getRespuesta1().getRes().getMime(),null);
+            //web.loadData(getString(R.string.ayuda), "text/html", null);
             web.setBackgroundColor(Color.TRANSPARENT);
             web.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
             layout.addView(web);
         }else if(selectecIndex == 1){
-            String consejo = getString(R.string.ayuda2);
+            String consejo = test.getRespuesta1().getAdvice();
+            System.out.println("Advise 1: "+ consejo);
             if(consejo.substring(0,10).contains("://")){
                 Uri uri = Uri.parse(consejo);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -154,7 +166,8 @@ public class TestActivity extends AppCompatActivity{
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             videoView.setLayoutParams(params);
-            videoView.setVideoURI(Uri.parse("http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"));
+            System.out.println("Advise 4: "+ test.getRespuesta4().getAdvice());
+            videoView.setVideoURI(Uri.parse(test.getRespuesta4().getAdvice()));
             MediaController controller = new MediaController(this) {
                 @Override
                 public void hide(){
@@ -176,7 +189,8 @@ public class TestActivity extends AppCompatActivity{
             LinearLayout layout = (LinearLayout) findViewById(R.id.activity_test);
             AudioPlayer audioPlay = new AudioPlayer(findViewById(R.id.activity_test));
             try {
-                audioPlay.setAudioUri(Uri.parse("http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"));
+                System.out.println("Advise 1: "+ test.getRespuesta5().getAdvice());
+                audioPlay.setAudioUri(Uri.parse(test.getRespuesta5().getAdvice()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -34,7 +34,7 @@ public class RestClient {
         String basicAuth = Base64.encodeToString(String.format("%s:%s",user,passwd).getBytes(), Base64.DEFAULT);
         //String basicAuth = Base64.encodeToString(new String(user+":"+passwd).getBytes(),Base64.DEFAULT);
         System.out.print(basicAuth);
-        properties.put(AUTH, String.format("Basic %s", basicAuth+"\r\n"));
+        properties.put(AUTH, String.format("Basic %s", basicAuth));
     }
 
     public String getAuthorization(){
@@ -53,8 +53,8 @@ public class RestClient {
         URL url = new URL(path);
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
         //conn.setRequestProperty("Connection", "Keep-Alive");
-        for(Map.Entry<String, String> property : properties.entrySet() )
-            conn.setRequestProperty(property.getKey(),property.getValue());
+        for(Map.Entry<String, String> property : properties.entrySet())
+                conn.setRequestProperty(property.getKey(),property.getValue());
         conn.setUseCaches(false);
         //conn.setRequestProperty("Connection","Keep-Alive");
         return conn;

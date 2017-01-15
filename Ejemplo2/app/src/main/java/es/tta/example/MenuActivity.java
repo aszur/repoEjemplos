@@ -16,7 +16,10 @@ import com.example.docencia.ejemplo1.R;
 public class MenuActivity extends AppCompatActivity {
     Button botonEjercicio;
     Button botonSeguimiento;
+    String usuario,pwd;
     public final static String EXTRA_LOGIN = "es.tta.ejemplo.login";
+    public final static String EXTRA_PWD = "es.tta.ejemplo.pwd";
+    public final static String EXTRA_ID = "es.tta.ejemplo.id";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,8 @@ public class MenuActivity extends AppCompatActivity {
         botonSeguimiento.setOnClickListener(toOption);
         /*Esto de pasar datos se podría hacer mediante una interfaz? ¿Como?*/
         Bundle bundle = intent.getExtras();
-        String usuario = bundle.getString(EXTRA_LOGIN);
+        usuario = bundle.getString(EXTRA_LOGIN);
+        pwd = bundle.getString(EXTRA_PWD);
         //Log.d("Usuario/Usr",usuario+"/"+usr);
         TextView textLogin = (TextView) findViewById(R.id.bienvenidaUsuario);
         String bienvenida = getString(R.string.bienvenida) +" "+ usuario +" "+ getString(R.string.bienvenida2);
@@ -39,7 +43,8 @@ public class MenuActivity extends AppCompatActivity {
     //Funcion llamada desde layout
     public void test(View v){
         Intent intentTest = new Intent(this, TestActivity.class);
-        intentTest.putExtra("usuario", EXTRA_LOGIN); //Se pasa el login por si hay que subir la respuesta asociada al usuario
+        intentTest.putExtra("usuario", usuario); //Se pasa el login por si hay que subir la respuesta asociada al usuario
+        intentTest.putExtra("pwd", pwd);
         startActivity(intentTest);
     }
     //Funcion llamada desde un listener

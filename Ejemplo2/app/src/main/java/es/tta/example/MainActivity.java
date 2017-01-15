@@ -8,7 +8,10 @@ import android.widget.EditText;
 
 import com.example.docencia.ejemplo1.R;
 
+import java.util.concurrent.ExecutionException;
+
 import es.tta.example.model.AT_GetUserData;
+import es.tta.example.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +32,17 @@ public class MainActivity extends AppCompatActivity {
         String pwd = ((EditText) findViewById(R.id.claveUsuario)).getText().toString();
         if (authenticate(login, pwd)) {
             intent.putExtra(MenuActivity.EXTRA_LOGIN, login);
-            /*AT_GetUserData guD = new AT_GetUserData();
-            guD.execute().get();*/
+            intent.putExtra(MenuActivity.EXTRA_PWD, pwd);
+            AT_GetUserData guD = new AT_GetUserData();
+            try {
+                User usuario = guD.execute(login).get();
+                intent.putExtra(MenuActivity.EXTRA_ID, usuario.getId());
+                System.out.println("En accede: El id es:"+usuario.getId()+" El usuario es: "+login+":"+pwd);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
             startActivity(intent);
         }
     }
