@@ -16,11 +16,11 @@ public class AT_PostChoice extends AsyncTask<String, Integer, Void> {
     protected Void doInBackground(String... opcion) {
         String surl = "http://u017633.ehu.eus:28080/ServidorTta/rest/tta/postChoice";
         try {
-            RestClient.setHttpBasicAuth("12345678A", "tta");
+            RestClient.setHttpBasicAuth(opcion[2], opcion[3]);
             JSONObject jo = new JSONObject();
             jo.put("userId", opcion[0]);
             jo.put("choiceId", opcion[1]);
-            RestClient.postJson(jo, "surl");
+            RestClient.postJson(jo, surl);
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {

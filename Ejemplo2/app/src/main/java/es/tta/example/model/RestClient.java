@@ -21,7 +21,7 @@ import java.util.Map;
  */
 
 public class RestClient {
-    private final static String AUTH = "Authoritation";
+    private final static String AUTH = "Authorization";
     private final static String baseUrl="baseUrl";
     private final static int MEGABYTE = 1024 * 1024;
     private final static Map<String, String> properties = new HashMap<>();
@@ -41,11 +41,9 @@ public class RestClient {
         return properties.get(AUTH);
     }
     public static void setAuthorization(String auth){
-
         properties.put(AUTH, auth);
     }
     public static void setProperty(String name, String value){
-
         properties.put(name,value);
     }
 
@@ -67,9 +65,11 @@ public class RestClient {
             System.out.print("Conexion status: "+conn.getResponseCode());
             System.out.println("En getString... Conexión creada");
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            br.close();
             //conn.disconnect();
-            return br.readLine();
+            String string = br.readLine();
+            br.close();
+            return string;
+
         }finally {
             if(conn != null){
                 conn.disconnect();

@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(MenuActivity.EXTRA_PWD, pwd);
             AT_GetUserData guD = new AT_GetUserData();
             try {
-                User usuario = guD.execute(login).get();
+                String [] log = {login,pwd};
+                User usuario = guD.execute(log).get();
                 intent.putExtra(MenuActivity.EXTRA_ID, usuario.getId());
                 System.out.println("En accede: El id es:"+usuario.getId()+" El usuario es: "+login+":"+pwd);
             } catch (InterruptedException e) {

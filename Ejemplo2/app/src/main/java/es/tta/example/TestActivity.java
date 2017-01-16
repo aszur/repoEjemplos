@@ -63,6 +63,7 @@ public class TestActivity extends AppCompatActivity{
             test = gT.execute(strings).get();
             TextView pregunta = (TextView)findViewById(R.id.preguntaTest);
             pregunta.setText(test.getEnunciado());
+            System.out.println("Enunciado: "+test.getEnunciado());
             String[] answer = {test.getRespuesta1().getAnswer(),
                     test.getRespuesta2().getAnswer(),
                     test.getRespuesta3().getAnswer(),
@@ -124,7 +125,7 @@ public class TestActivity extends AppCompatActivity{
             Toast.makeText(this, R.string.fallo, Toast.LENGTH_SHORT).show();
         }
         AT_PostChoice pC = new AT_PostChoice();
-        String [] strings = {usuario,Integer.toString(seleccionada)};
+        String [] strings = {usuario,Integer.toString(seleccionada),usuario,pwd};
         pC.execute(strings);
     }
 
